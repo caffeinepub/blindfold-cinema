@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "BricolageGrotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* Cinema dark palette */
+    --background: 0.08 0.008 280;
+    --foreground: 0.96 0.004 280;
+    --card: 0.1 0.015 290;
+    --card-foreground: 0.96 0.004 280;
+    --popover: 0.12 0.04 295;
+    --popover-foreground: 0.96 0.004 280;
+
+    /* Purple accent primary */
+    --primary: 0.54 0.21 283;
+    --primary-foreground: 0.96 0.004 280;
+
+    /* Gold accent secondary */
+    --secondary: 0.82 0.17 82;
+    --secondary-foreground: 0.08 0.008 280;
+
+    --muted: 0.13 0.025 290;
+    --muted-foreground: 0.65 0.01 280;
+
+    --accent: 0.47 0.22 283;
+    --accent-foreground: 0.96 0.004 280;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 1 0 0 / 8%;
+    --input: 1 0 0 / 12%;
+    --ring: 0.54 0.21 283;
+
+    --chart-1: 0.54 0.21 283;
+    --chart-2: 0.82 0.17 82;
+    --chart-3: 0.47 0.22 283;
+    --chart-4: 0.77 0.16 76;
+    --chart-5: 0.74 0.01 280;
+
+    --sidebar: 0.1 0.04 295;
+    --sidebar-foreground: 0.96 0.004 280;
+    --sidebar-primary: 0.54 0.21 283;
+    --sidebar-primary-foreground: 0.96 0.004 280;
+    --sidebar-accent: 0.14 0.065 295;
+    --sidebar-accent-foreground: 0.96 0.004 280;
+    --sidebar-border: 1 0 0 / 8%;
+    --sidebar-ring: 0.54 0.21 283;
+
+    /* Custom tokens */
+    --gold: 0.82 0.17 82;
+    --gold-dim: 0.77 0.16 76;
+    --purple: 0.54 0.21 283;
+    --purple-vivid: 0.47 0.22 283;
+    --surface-deep: 0.1 0.04 295;
+    --surface-panel: 0.14 0.065 295;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "PlusJakartaSans", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "BricolageGrotesque", system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.1 0.008 280);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.25 0.04 280);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.54 0.21 283);
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+  .text-gold-dim {
+    color: oklch(var(--gold-dim));
+  }
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+  .bg-purple {
+    background-color: oklch(var(--purple));
+  }
+  .bg-surface-deep {
+    background-color: oklch(var(--surface-deep));
+  }
+  .bg-surface-panel {
+    background-color: oklch(var(--surface-panel));
+  }
+  .border-subtle {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+  .glow-purple {
+    box-shadow: 0 0 24px oklch(0.54 0.21 283 / 0.35), 0 4px 16px
+      oklch(0.47 0.22 283 / 0.2);
+  }
+  .glow-gold {
+    box-shadow: 0 0 24px oklch(0.82 0.17 82 / 0.35);
+  }
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px oklch(0.47 0.22 283 / 0.3);
+  }
+  .gradient-poster-1 {
+    background: linear-gradient(
+      160deg,
+      oklch(0.18 0.08 295) 0%,
+      oklch(0.1 0.04 290) 50%,
+      oklch(0.08 0.008 280) 100%
+    );
+  }
+  .gradient-poster-2 {
+    background: linear-gradient(
+      160deg,
+      oklch(0.22 0.07 270) 0%,
+      oklch(0.14 0.06 300) 50%,
+      oklch(0.08 0.008 280) 100%
+    );
+  }
+  .gradient-poster-3 {
+    background: linear-gradient(
+      160deg,
+      oklch(0.2 0.09 280) 0%,
+      oklch(0.12 0.05 310) 50%,
+      oklch(0.08 0.008 260) 100%
+    );
+  }
+  .gradient-poster-4 {
+    background: linear-gradient(
+      160deg,
+      oklch(0.16 0.07 260) 0%,
+      oklch(0.12 0.08 295) 50%,
+      oklch(0.08 0.01 280) 100%
+    );
+  }
+  .gradient-poster-5 {
+    background: linear-gradient(
+      160deg,
+      oklch(0.24 0.06 305) 0%,
+      oklch(0.14 0.04 280) 50%,
+      oklch(0.08 0.008 280) 100%
+    );
+  }
+  .gradient-poster-6 {
+    background: linear-gradient(
+      160deg,
+      oklch(0.18 0.1 285) 0%,
+      oklch(0.1 0.06 300) 50%,
+      oklch(0.08 0.008 280) 100%
+    );
+  }
+}
